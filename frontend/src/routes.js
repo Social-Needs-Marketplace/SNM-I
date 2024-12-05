@@ -91,6 +91,7 @@ import VisualizeClientAssessment from "./components/clientAssessment/VisualizeCl
 import VisualizeReferral from "./components/referrals/VisualizeReferral";
 import Matching from "./components/clients/Matching";
 import VisualizeNotification from './components/notifications/visualizeNotification';
+import Calendar from "./components/calendar/calendar";
 
 const routes = (
   <Routes>
@@ -238,6 +239,8 @@ const routes = (
     <Route path={'/outcome/:id/:option'} element={<AdminRoute element={AddEditOutcome}/>}/>
     <Route path={'/outcome/:option'} element={<AdminRoute element={AddEditOutcome}/>}/>
     <Route path={'/outcomes'} element={<AdminRoute element={Outcomes}/>}/>
+
+    <Route path={'/calendar'} element={<PrivateRoute element={Calendar}/>}/>
 
     <Route exact path="/settings/manage-forms/" element={<AdminRoute element={ManageForms}/>}/>
     <Route exact path="/settings/manage-forms/:formType" element={<AdminRoute element={ManageForms}/>}/>

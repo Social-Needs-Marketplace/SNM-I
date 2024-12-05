@@ -18,6 +18,7 @@ const {Server400Error} = require("../../utils");
 const {GDBOrganizationModel} = require("../../models/organization");
 const {GDBVolunteerModel} = require("../../models/volunteer");
 const {GDBAppointmentModel} = require("../../models/appointment");
+const {GDBCalendarEventModel} = require("../../models/calendarEvent");
 const {GDBPersonModel} = require("../../models/person");
 const {GDBServiceOccurrenceModel} = require("../../models/service/serviceOccurrence");
 const {GDBProgramOccurrenceModel} = require("../../models/program/programOccurrence");
@@ -73,6 +74,11 @@ const {
   appointmentInternalTypeFetchTreater,
   appointmentInternalTypeUpdateTreater
 } = require("./appointment");
+const {
+  calendarEventInternalTypeCreateTreater,
+  calendarEventInternalTypeFetchTreater,
+  calendarEventInternalTypeUpdateTreater,
+} = require("./calendarEvent");
 const {GDBServiceProvisionModel} = require("../../models/serviceProvision");
 const {GDBProgramProvisionModel} = require("../../models/programProvision");
 const {GDBNeedSatisfierOccurrenceModel} = require("../../models/needSatisfierOccurrence");
@@ -130,6 +136,7 @@ const genericType2Model = {
   'service': GDBServiceModel,
   'program': GDBProgramModel,
   'appointment': GDBAppointmentModel,
+  'calendarEvent': GDBCalendarEventModel,
   'serviceOccurrence': GDBServiceOccurrenceModel,
   'programOccurrence': GDBProgramOccurrenceModel,
   'referral': GDBReferralModel,
@@ -160,6 +167,7 @@ const genericType2Populates = {
   'programOccurrence': ['address', 'occurrenceOf'],
   'client': ['address', 'needs'],
   'appointment': ['address', 'referral'],
+  'calendarEvent': ['address', 'referral'],
   'person': ['address'],
   'volunteer': ['partnerOrganizations', 'organization', 'address'],
 };
@@ -196,6 +204,7 @@ const genericType2InternalTypeCreateTreater = {
   'serviceRegistration': serviceRegistrationInternalTypeCreateTreater,
   'programRegistration': programRegistrationInternalTypeCreateTreater,
   'appointment': appointmentInternalTypeCreateTreater,
+  'calendarEvent': calendarEventInternalTypeCreateTreater,
   'serviceProvision': serviceProvisionInternalTypeCreateTreater,
   'programProvision': programProvisionInternalTypeCreateTreater,
   'client': clientInternalTypeCreateTreater,
@@ -215,6 +224,7 @@ const genericType2InternalTypeFetchTreater = {
   'serviceRegistration': serviceRegistrationInternalTypeFetchTreater,
   'programRegistration': programRegistrationInternalTypeFetchTreater,
   'appointment': appointmentInternalTypeFetchTreater,
+  'calendarEvent': calendarEventInternalTypeFetchTreater,
   'serviceProvision': serviceProvisionInternalTypeFetchTreater,
   'programProvision': programProvisionInternalTypeFetchTreater,
   'client': clientInternalTypeFetchTreater,
@@ -234,6 +244,7 @@ const genericType2InternalTypeUpdateTreater = {
   'serviceRegistration': serviceRegistrationInternalTypeUpdateTreater,
   'programRegistration': programRegistrationInternalTypeUpdateTreater,
   'appointment': appointmentInternalTypeUpdateTreater,
+  'calendarEvent': calendarEventInternalTypeUpdateTreater,
   'serviceProvision': serviceProvisionInternalTypeUpdateTreater,
   'programProvision': programProvisionInternalTypeUpdateTreater,
   'client': clientInternalTypeUpdateTreater,
