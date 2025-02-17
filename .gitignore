@@ -13,3 +13,4 @@ backend/yarn.lock
 node_modules/.yarn-integrity
 .vscode/
 docs/
+backend/ATT75011.env

@@ -237,6 +237,13 @@ function TopNavBar() {
                 <Typography variant="inherit">Persons</Typography>
               </MenuItem>
 
+              <MenuItem onClick={handleLink(`/calendar`)}>
+                <ListItemIcon>
+                  <BusinessCenterIcon fontSize="medium" sx={{color: 'black'}}/>
+                </ListItemIcon>
+                <Typography variant="inherit">Calendar</Typography>
+              </MenuItem>
+
             </Menu>
           </div>
         ) : null}
